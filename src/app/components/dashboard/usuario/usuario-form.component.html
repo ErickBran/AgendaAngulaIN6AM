@@ -1,0 +1,32 @@
+<h2>Pefil</h2>
+<button class="btn btn-outline-success"
+  [routerLink]="['/dashboard/usuario']">Regresar</button>
+<hr>
+<div *ngIf="formularioUsuario">
+  <form (ngSubmit)="guardarCambios()"
+    [formGroup]="formularioUsuario">
+    <div class="form-group row">
+      <label class="col-2 col-form-label">Nombre</label>
+      <div class="col-10">
+        <input class="form-control" type="text"
+        formControlName="nombre">
+      </div>
+    </div>
+    <div class="form-group row">
+      <label class="col-2 col-form-label">Contrasena</label>
+      <div class="col-10">
+        <input class="form-control" type="text"
+        formControlName="contrasena">
+      </div>
+    </div>
+    <div class="form-group row">
+      <div class="col-10">
+        <button
+          [disabled]="!formularioUsuario.valid"
+          type="submit" class="btn btn-outline-primary">
+          Guardar Cambios
+        </button>
+      </div>
+    </div>
+  </form>
+</div>

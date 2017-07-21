@@ -1,0 +1,27 @@
+<h1>Tarea</h1>
+<button class="btn btn-outline-primary"
+[routerLink]="['/dashboard/tarea', 'nuevo']">Nueva Tarea</button>
+<hr>
+<div class="card-columns">
+  <div class="card"
+  *ngFor="let tarea of tareas">
+    <div class="card-block">
+      <h4 class="card-title">{{ tarea.titulo | uppercase }}</h4>
+      <p class="card-text">{{ tarea.descripcion }}</p>
+      <p class="card-text">{{ tarea.fechaInicial }}</p>
+      <p class="card-text">{{ tarea.fechaFinal }}</p>
+      <footer>
+        <button
+          (click)="borrarTarea(tarea.idTarea)"
+          class="btn btn-block btn-outline-danger">
+          <strong>Eliminar</strong>
+        </button>
+        <button
+          [routerLink]="['/dashboard/tarea', tarea.idTarea]"
+          class="btn btn-block btn-outline-success">
+          <strong>Ver mas</strong>
+        </button>
+      </footer>
+    </div>
+  </div>
+</div>
